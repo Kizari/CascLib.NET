@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net8.0;net9.0;</TargetFrameworks>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <LangVersion>latest</LangVersion>
+
+        <PackageId>CascLib.NET</PackageId>
+        <Version>1.50.0.206-alpha.1</Version>
+        <Authors>Kizari</Authors>
+        <Description>
+            Simple wrapper library for CascLib that provides standardized .NET constructs for accessing files
+            in a CASC storage using P/Invoke to call upon the original native library.
+        </Description>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageTags>CascLib;CASC;CascLib.NET;CascLibSharp</PackageTags>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <None Include="LICENSE" Pack="true" PackagePath=""/>
+        <None Include="README.md" Pack="true" PackagePath=""/>
+        <None Include="ATTRIBUTION.md" Pack="true" PackagePath=""/>
+        <None Include="runtimes/win-x64/native/CascLib.dll">
+          <Pack>true</Pack>
+          <PackagePath>runtimes/win-x64/native/</PackagePath>
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
+</Project>
