@@ -8,7 +8,7 @@
         <LangVersion>latest</LangVersion>
 
         <PackageId>CascLib.NET</PackageId>
-        <Version>1.50.0.206-alpha.2</Version>
+        <Version>1.50.0.206-alpha.3</Version>
         <Authors>Kizari</Authors>
         <Description>
             Simple wrapper library for CascLib that provides standardized .NET constructs for accessing files
@@ -17,10 +17,7 @@
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageTags>CascLib;CASC;CascLib.NET;CascLibSharp</PackageTags>
-        <PackageReleaseNotes>
-            - Added support for CascGetStorageInfo in the form of properties on CascStorage
-            - Fixes an issue where CascFindData was not being populated correctly when enumerating a storage
-        </PackageReleaseNotes>
+        <PackageReleaseNotes>Fixed a bug where the value of IsFileAvailable in CascFindData was incorrect.</PackageReleaseNotes>
     </PropertyGroup>
     
     <ItemGroup>

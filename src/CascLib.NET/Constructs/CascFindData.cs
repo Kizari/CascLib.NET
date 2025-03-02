@@ -116,5 +116,5 @@ public struct CascFindData
     /// <summary>
     /// <c>true</c> if the file is available locally.
     /// </summary>
-    public bool IsFileAvailable => ((_isFileAvailable >> 31) & 1) > 0;
+    public bool IsFileAvailable => (_isFileAvailable & 1) != 0;
 }
