@@ -48,6 +48,49 @@ public sealed class CascStorage : IEnumerable<CascFindData>, IDataStorage
         }
     }
 
+    /// <summary>
+    /// Number of local files in the storage.
+    /// </summary>
+    /// <remarks>
+    /// Files can exist under multiple different names, so the total number of files in the archive can be higher than
+    /// the value returned by this info class.
+    /// </remarks>
+    public int LocalFileCount => 
+        (int)CascLib.CascGetStorageInfo<uint>(_hStorage, CascStorageInfoClass.LocalFileCount);
+    
+    /// <summary>
+    /// Total number of files in the storage, including files that have not been downloaded.
+    /// </summary>
+    public int TotalFileCount =>
+        (int)CascLib.CascGetStorageInfo<uint>(_hStorage, CascStorageInfoClass.TotalFileCount);
+
+    /// <summary>
+    /// Features that are available on this storage.
+    /// </summary>
+    public CascFeature Features => 
+        CascLib.CascGetStorageInfo<CascFeature>(_hStorage, CascStorageInfoClass.Features);
+
+    /// <summary>
+    /// Information about the product associated with this storage.
+    /// </summary>
+    public CascStorageProduct Product =>
+        CascLib.CascGetStorageInfo<CascStorageProduct>(_hStorage, CascStorageInfoClass.Product);
+    
+    /// <summary>
+    /// Information about tags included in the storage.
+    /// </summary>
+    public CascStorageTags Tags =>
+        CascLib.CascGetStorageInfo<CascStorageTags>(_hStorage, CascStorageInfoClass.Tags);
+
+    /// <summary>
+    /// Open parameters of the storage.
+    /// </summary>
+    /// <remarks>
+    /// AKA <c>LocalPath:ProductCode</c>.
+    /// </remarks>
+    public string PathProduct =>
+        CascLib.CascGetStorageInfo<string>(_hStorage, CascStorageInfoClass.PathProduct);
+
     /// <inheritdoc />
     public Stream OpenFile(string path) => new CascFileStream(_hStorage, path);
 
@@ -121,7 +164,7 @@ public sealed class CascStorage : IEnumerable<CascFindData>, IDataStorage
             _current = Marshal.PtrToStructure<CascFindData>(pNext);
             Marshal.FreeHGlobal(pNext);
 
-            if (_current.CKey.SequenceEqual(new byte[16]))
+            if (_current.ContentKey.SequenceEqual(new byte[16]))
             {
                 Reset();
                 return false;
