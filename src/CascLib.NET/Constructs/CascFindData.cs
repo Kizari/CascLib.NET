@@ -8,10 +8,10 @@ namespace CascLib.NET;
 /// <remarks>
 /// See also <a href="https://github.com/ladislav-zezula/CascLib/blob/07ab5f37ad282cc101d5c17793c550a0a6d4637f/src/CascLib.h#L227">Original C++ Code</a>
 /// </remarks>
-[StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
+[StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
 public struct CascFindData
 {
-    private const int MAX_PATH = 260;
+    internal const int MAX_PATH = 260;
     private const int MD5_HASH_SIZE = 16;
     
     /// <summary>
@@ -27,16 +27,16 @@ public struct CascFindData
     /// the name of the key instead.
     /// </remarks>
     [MarshalAs(UnmanagedType.ByValTStr, SizeConst = MAX_PATH)]
-    public string szFileName;
+    public string FileName;
 
     /// <summary>
     /// Content key.
     /// </summary>
     /// <remarks>
-    /// This is present if the CASC_FEATURE_ROOT_CKEY is present on the storage.
+    /// This is present if <see cref="CascFeature.RootCKey"/> is present in <see cref="CascStorage.Tags"/>.
     /// </remarks>
     [MarshalAs(UnmanagedType.ByValArray, SizeConst = MD5_HASH_SIZE)]
-    public byte[] CKey;
+    public byte[] ContentKey;
 
     /// <summary>
     /// Encoded key.
@@ -45,7 +45,7 @@ public struct CascFindData
     /// This is always present.
     /// </remarks>
     [MarshalAs(UnmanagedType.ByValArray, SizeConst = MD5_HASH_SIZE)]
-    public byte[] EKey;
+    public byte[] EncodedKey;
 
     /// <summary>
     /// Tag mask.
@@ -62,10 +62,11 @@ public struct CascFindData
     /// Plain name of the file.
     /// </summary>
     /// <remarks>
-    /// Underlying <c>char*</c> points to the substring within <see cref="szFileName"/> that excludes the path
+    /// Underlying <c>char*</c> points to the substring within <see cref="FileName"/> that excludes the path
     /// component and only includes the file name itself.
     /// </remarks>
-    public IntPtr szPlainName;
+    [MarshalAs(UnmanagedType.LPStr)]
+    public string PlainName;
     
     /// <summary>
     /// File data ID.
@@ -73,7 +74,7 @@ public struct CascFindData
     /// <remarks>
     /// Only valid if the storage supports file data IDs, otherwise contains <see cref="CASC_INVALID_ID"/>.
     /// </remarks>
-    public uint dwFileDataId;
+    public uint FileDataId;
     
     /// <summary>
     /// Locale flags.
@@ -81,7 +82,7 @@ public struct CascFindData
     /// <remarks>
     /// Only valid if the storage supports locale flags, otherwise contains <see cref="CASC_INVALID_ID"/>.
     /// </remarks>
-    public uint dwLocaleFlags;
+    public uint LocaleFlags;
     
     /// <summary>
     /// Content flags.
@@ -89,12 +90,12 @@ public struct CascFindData
     /// <remarks>
     /// Only valid if the storage supports content flags, otherwise contains <see cref="CASC_INVALID_ID"/>.
     /// </remarks>
-    public uint dwContentFlags;
+    public uint ContentFlags;
     
     /// <summary>
     /// Span count.
     /// </summary>
-    public uint dwSpanCount;
+    public uint SpanCount;
     
     /// <summary>
     /// If true, the file is available locally.
@@ -102,42 +103,18 @@ public struct CascFindData
     /// <remarks>
     /// Only the first bit of this field is used for the boolean value.
     /// </remarks>
-    public uint bFileAvailable;
+    private uint _isFileAvailable;
     
     /// <summary>
-    /// Type of the name contained in <see cref="szFileName"/>.
+    /// Type of the name contained in <see cref="FileName"/>.
     /// </summary>
     /// <remarks>
     /// If the file name is not known, CascLib uses a FileDataId-like name or a string representation of CKey/EKey.
     /// </remarks>
     public CascNameType NameType;
-}
 
-/// <summary>
-/// The type of the <see cref="CascFindData.szFileName"/> in <see cref="CascFindData"/>.
-/// </summary>
-/// <remarks>
-/// See also <a href="https://github.com/ladislav-zezula/CascLib/blob/master/src/CascLib.h#L218">Original C++ Code</a>
-/// </remarks>
-public enum CascNameType
-{
     /// <summary>
-    /// <see cref="CascFindData.szFileName"/> contains a full file path.
+    /// <c>true</c> if the file is available locally.
     /// </summary>
-    Full,
-    
-    /// <summary>
-    /// <see cref="CascFindData.szFileName"/> contains the data identifier.
-    /// </summary>
-    DataId,
-    
-    /// <summary>
-    /// <see cref="CascFindData.szFileName"/> contains the name of the content key.
-    /// </summary>
-    CKey,
-    
-    /// <summary>
-    /// <see cref="CascFindData.szFileName"/> contains the name of the encoded key.
-    /// </summary>
-    EKey
+    public bool IsFileAvailable => ((_isFileAvailable >> 31) & 1) > 0;
 }
