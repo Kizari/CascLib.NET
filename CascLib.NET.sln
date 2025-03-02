@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CascLib.NET", "src\CascLib.NET\CascLib.NET.csproj", "{97743561-E3AC-4897-9283-F061FEBC85A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CascLib.NET.IntegrationTests", "tests\CascLib.NET.IntegrationTests\CascLib.NET.IntegrationTests.csproj", "{7746B900-9B73-4EAF-8907-82E9ACB58FDF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{97743561-E3AC-4897-9283-F061FEBC85A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97743561-E3AC-4897-9283-F061FEBC85A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97743561-E3AC-4897-9283-F061FEBC85A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7746B900-9B73-4EAF-8907-82E9ACB58FDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7746B900-9B73-4EAF-8907-82E9ACB58FDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7746B900-9B73-4EAF-8907-82E9ACB58FDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7746B900-9B73-4EAF-8907-82E9ACB58FDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
