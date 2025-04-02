@@ -10,8 +10,8 @@ native library. All credit for CascLib goes to Ladislav Zezula and the contribut
 
 ## Limitations
 
-* Does not currently support every possible function of CascLib, see [Features](#Features)
-  for a list of what is supported
+* Does not currently support every possible function of CascLib, see the
+  [CascLib.NET documentation](https://kizari.github.io/CascLib.NET) for supported functionality
 * Has the original CascLib DLL bundled in (the CascLib.NET version mirrors the CascLib version used), 
   so cannot be easily used with other versions
 * Has only been tested on a couple of version of D2R, but no other games
@@ -56,7 +56,7 @@ This storage can then be used to access files until disposed.
 // Write the name of every file in the CascStorage
 foreach (var file in storage)
 {
-    Console.WriteLine(file.szFileName);
+    Console.WriteLine(file.FileName);
 }
 ```
 
@@ -65,7 +65,7 @@ As such, LINQ operations are also supported.
 ```csharp
 // Get the second group of 10 files with "model" in their path
 var models = storage
-    .Where(file => file.szFileName.Contains("model"))
+    .Where(file => file.FileName.Contains("model"))
     .Skip(10)
     .Take(10);
 ```
