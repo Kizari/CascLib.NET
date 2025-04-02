@@ -1,0 +1,165 @@
+{
+  "source_base_path": "/github/workspace/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CascLib.NET.CascFeature.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CascLib.NET.CascFeature.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CascLib.NET.CascFileStream.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CascLib.NET.CascFileStream.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CascLib.NET.CascFindData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CascLib.NET.CascFindData.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CascLib.NET.CascNameType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CascLib.NET.CascNameType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CascLib.NET.CascStorage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CascLib.NET.CascStorage.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CascLib.NET.CascStorageInfoClass.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CascLib.NET.CascStorageInfoClass.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CascLib.NET.CascStorageProduct.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CascLib.NET.CascStorageProduct.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CascLib.NET.CascStorageTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CascLib.NET.CascStorageTag.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CascLib.NET.CascStorageTags.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CascLib.NET.CascStorageTags.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CascLib.NET.IDataStorage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CascLib.NET.IDataStorage.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CascLib.NET.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CascLib.NET.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "api/toc.json"
+        },
+        ".html": {
+          "relative_path": "api/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "toc.json"
+        },
+        ".html": {
+          "relative_path": "toc.html"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
